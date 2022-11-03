@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Esperanza.UI.MVC", "App.Esperanza.UI.MVC\App.Esperanza.UI.MVC.csproj", "{F2F08D30-00F5-4E7A-AA03-375EDE87B6F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{8898FFCF-711E-437E-99EF-4125F4AA2C9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{ACD6FE3C-013A-4F0C-940F-0A1BAC22878F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Esperanza.Models", "App.Esperanza.Models\App.Esperanza.Models.csproj", "{AA9B5684-C014-4DED-95D9-E82C7E079BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Esperanza.Repositories", "App.Esperanza.Repositories\App.Esperanza.Repositories.csproj", "{74CF5597-0964-4B62-A199-8B18CB0325D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Esperanza.Repositories.Dapper", "App.Esperanza.Repositories.Dapper\App.Esperanza.Repositories.Dapper.csproj", "{A8494CE5-4320-45DF-92C9-F26CF9103869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Esperanza.UnitOfWork", "App.Esperanza.UnitOfWork\App.Esperanza.UnitOfWork.csproj", "{7A48B45C-7260-45D8-B8EC-19E53E1A41DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2F08D30-00F5-4E7A-AA03-375EDE87B6F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F08D30-00F5-4E7A-AA03-375EDE87B6F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F08D30-00F5-4E7A-AA03-375EDE87B6F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F08D30-00F5-4E7A-AA03-375EDE87B6F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA9B5684-C014-4DED-95D9-E82C7E079BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9B5684-C014-4DED-95D9-E82C7E079BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9B5684-C014-4DED-95D9-E82C7E079BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9B5684-C014-4DED-95D9-E82C7E079BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74CF5597-0964-4B62-A199-8B18CB0325D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74CF5597-0964-4B62-A199-8B18CB0325D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74CF5597-0964-4B62-A199-8B18CB0325D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74CF5597-0964-4B62-A199-8B18CB0325D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8494CE5-4320-45DF-92C9-F26CF9103869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8494CE5-4320-45DF-92C9-F26CF9103869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8494CE5-4320-45DF-92C9-F26CF9103869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8494CE5-4320-45DF-92C9-F26CF9103869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A48B45C-7260-45D8-B8EC-19E53E1A41DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A48B45C-7260-45D8-B8EC-19E53E1A41DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A48B45C-7260-45D8-B8EC-19E53E1A41DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A48B45C-7260-45D8-B8EC-19E53E1A41DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2F08D30-00F5-4E7A-AA03-375EDE87B6F2} = {ACD6FE3C-013A-4F0C-940F-0A1BAC22878F}
+		{AA9B5684-C014-4DED-95D9-E82C7E079BDF} = {8898FFCF-711E-437E-99EF-4125F4AA2C9C}
+		{74CF5597-0964-4B62-A199-8B18CB0325D7} = {8898FFCF-711E-437E-99EF-4125F4AA2C9C}
+		{A8494CE5-4320-45DF-92C9-F26CF9103869} = {8898FFCF-711E-437E-99EF-4125F4AA2C9C}
+		{7A48B45C-7260-45D8-B8EC-19E53E1A41DA} = {8898FFCF-711E-437E-99EF-4125F4AA2C9C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1AF7075-8A8C-4ABB-8CA9-5BF1A27EBB6F}
+	EndGlobalSection
+EndGlobal

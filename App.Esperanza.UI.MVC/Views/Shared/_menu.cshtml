@@ -1,0 +1,15 @@
+﻿@if (Request.IsAuthenticated)
+{
+    if (User.IsInRole("1")) //Administrador
+    {
+        @Html.Partial("_menuAdministrador")
+    }
+    else if (User.IsInRole("2")) //Asesor
+    {
+        @Html.Partial("_menuAsesor")
+    }
+    else if (User.IsInRole("3")) //Operario
+    {
+        @Html.Partial("_menuOperario")
+    }
+}
