@@ -25,53 +25,76 @@ namespace App.Esperanza.UI.MVC.Controllers
         [HttpGet]
         public async Task<ActionResult> Create()
         {
-            return View();
+            return PartialView("_Create");
         }
 
         [HttpPost]
         public async Task<ActionResult> Create(Servicio servicio) //Model Binder
         {
+            if (ModelState.IsValid)
+            {
+                //Datos adicionales a usar del ojeto Usuario logueado
+                //descomentar cuando se configure la seguridad del sistema
 
-            //Datos adicionales a usar del ojeto Usuario logueado
-            //descomentar cuando se configure la seguridad del sistema
-            /*
-            var context = Request.GetOwinContext();
-            var authManager = context.Authentication;
-            var lstClaims = authManager.User.Claims.ToList();
-            var userId = lstClaims[3].Value;
-            var usuario = _unit.Usuarios.Obtener(int.Parse(userId));
+                var context = Request.GetOwinContext();
+                var authManager = context.Authentication;
+                var lstClaims = authManager.User.Claims.ToList();
+                var userId = lstClaims[3].Value;
+                //var usuario = _unit.Usuarios.Obtener(int.Parse(userId));
 
-            categoria.IdUsuarioCreador = int.Parse(userId);
-            */
-            var retorno = await _unit.Servicios.Agregar(servicio);
+                //categoria.IdUsuarioCreador = int.Parse(userId);
+            
+                var retorno = await _unit.Servicios.Agregar(servicio);
 
-            return RedirectToAction("Index");
+                if (retorno > 0)
+                    return new JsonResult
+                    {
+                        ContentType = "application/json",
+                        Data = retorno
+                    };
+                else
+                    return PartialView("_Create", servicio);
+            }
+
+            return PartialView("_Create");
         }
 
         [HttpGet]
         public async Task<ActionResult> Edit(int id)
         {
-            return View(await _unit.Servicios.Obtener(id));
+            return PartialView("_Edit", await _unit.Servicios.Obtener(id));
         }
 
         [HttpPost]
         public async Task<ActionResult> Edit(Servicio servicio)
         {
-            var retorno = await _unit.Servicios.Modificar(servicio);
+            if (ModelState.IsValid)
+            {
+                var retorno = await _unit.Servicios.Modificar(servicio);
 
-            return RedirectToAction("Index");
+                if (retorno)
+                    return new JsonResult
+                    {
+                        ContentType = "application/json",
+                        Data = servicio.Id
+                    };
+                else
+                    return PartialView("_Edit", servicio);
+            }
+
+            return PartialView("_Edit", servicio);
         }
 
         [HttpGet]
         public async Task<ActionResult> Details(int id)
         {
-            return View(await _unit.Servicios.Obtener(id));
+            return PartialView("_Details", await _unit.Servicios.Obtener(id));
         }
 
         [HttpGet]
         public async Task<ActionResult> Delete(int id)
         {
-            return View(await _unit.Servicios.Obtener(id));
+            return PartialView("_Delete", await _unit.Servicios.Obtener(id));
         }
 
         [HttpPost]
@@ -79,7 +102,16 @@ namespace App.Esperanza.UI.MVC.Controllers
         {
             var retorno = await _unit.Servicios.Eliminar(servicio.Id); //Eliminación lógica -> soft delete
 
-            return RedirectToAction("Index");
+            if (retorno > 0)
+                return new JsonResult
+                {
+                    ContentType = "application/json",
+                    Data = servicio.Id
+                };
+            else
+                return PartialView("_Delete", servicio);
         }
+
+        // aqui va la ruta especifica para los filtros -- NO OLVIDAR COLOCAR -> [RoutePrefix("Servicio")]
     }
 }

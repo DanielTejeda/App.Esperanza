@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +14,8 @@ namespace App.Esperanza.Models
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string NombreUsuario { get; set; }
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password)]
+        [Computed]
         public string Contraseña { get; set; }
         public bool Estado { get; set; }
         public int IdRol { get; set; }

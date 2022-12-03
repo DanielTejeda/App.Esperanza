@@ -1,0 +1,45 @@
+﻿
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Filtros de Búsqueda Avanzada</h6>
+    </div>
+    <div class="card-body">
+
+        <form class="user">
+            <div class="row">
+                <div class="form-group col-sm-2">
+                    <input type="text" id="ventaPendId" name="ventaPendId" class="form-control form-control-user"
+                           placeholder="Código de Venta" />
+                </div>
+                <div class="form-group col-sm-5">
+                    <input type="text" id="ventaPendIdCliente" name="ventaPendIdCliente" class="form-control form-control-user"
+                           placeholder="Código de Cliente" />
+                </div>
+                <div class="form-group col-sm-5">
+                    <input type="text" id="ventaPendIdAsesor" name="ventaPendIdAsesor" class="form-control form-control-user"
+                           placeholder="Código de Asesor de Ventas" />
+                </div>
+                <!--
+                <div class="form-group col-sm-5">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="far fa-calendar-alt"></i>
+                            </span>
+                        </div>
+                        <input type="text" id="CreationDateVenta" name="CreationDateVenta"
+                               class="form-control form-control-user float-right" />
+                    </div>
+                </div>
+                -->
+            </div>
+        </form>
+
+        <a href="#" class="btn btn-primary" onclick="venta.searchByFilterPend();">
+            <span class="fa fa-search">&nbsp;&nbsp;Buscar en Ventas</span>
+        </a>
+
+    </div>
+</div>

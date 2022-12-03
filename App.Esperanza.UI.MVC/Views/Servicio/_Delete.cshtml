@@ -1,0 +1,49 @@
+﻿@model App.Esperanza.Models.Servicio
+
+<h3>¿Estás seguro de inactivar este servicio?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+
+    @using (Ajax.BeginForm("Delete", new { Controller = "Servicio" },
+        new AjaxOptions
+        {
+            HttpMethod = "POST",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "modal-body",
+            OnSuccess = "servicio.success(data, 'delete');"
+        },
+        htmlAttributes: new { id = "deleteForm" }
+    ))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type = "submit" value="Inactivar" class="btn btn-danger" />
+        </div>
+    }
+</div>

@@ -6,106 +6,52 @@
 
 <h2>Bandeja de Ventas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdServicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdUsuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdAgencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Detalle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Partida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Llegada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Costo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CostoAdicional)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DetalleCostoAdicional)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Total)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EstadoServicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaEntrega)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaCreacion)
-        </th>
-        <th></th>
-    </tr>
+@Html.Partial("_FiltrosBusqueda")
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdServicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdUsuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdCliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdAgencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Detalle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Partida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Llegada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Costo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostoAdicional)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DetalleCostoAdicional)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EstadoServicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaEntrega)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaCreacion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Lista de Ventas</h6>
+    </div>
+    <div class="card-body" id="ventaList">
+        @Html.Partial("_List")
+    </div>
+</div>
 
-</table>
+@Modal.GetModal("Mantenimiento de Venta", "")
+
+
+<!-- Data Table -->
+<link href="~/Content/template/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/Content/template/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Data Table Responsive-->
+<link rel="stylesheet" href="~/Content/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<script src="~/Content/template/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Content/template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<!-- Data Table Buttons-->
+<link rel="stylesheet" href="~/Content/template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+@*<script src="~/Content/template/plugins/datatables/jquery.dataTables.min.js"></script>*@
+@*<script src="~/Content/template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>*@
+
+<script src="~/Content/template/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+
+<script src="~/Content/template/plugins/jszip/jszip.min.js"></script>
+<script src="~/Content/template/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Content/template/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- InputMask -->
+<!--<script src="~/Content/template/plugins/moment/moment.min.js"></script>-->
+
+<!-- Date Range Picker
+<link href="~/Content/template/plugins/daterangepicker/daterangepicker.css" rel="stylesheet">
+<script src="~/Content/template/plugins/daterangepicker/daterangepicker.js"></script>-->
+<!-- Custom scripts de la aplicación-->
+<script src="~/App_JS/appEsperanza.js" type="text/javascript"></script>
+<script src="~/App_JS/venta.js" type="text/javascript"></script>

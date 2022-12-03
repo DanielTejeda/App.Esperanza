@@ -11,6 +11,7 @@ namespace App.Esperanza.Models
     {
         public int Id { get; set; }
         public string Direccion { get; set; }
+        [StringLength(9, ErrorMessage = "El celular solo debe tener 9 dígitos")]
         public string Celular { get; set; }
         public string Departamento { get; set; }
         public bool Estado { get; set; }

@@ -1,75 +1,55 @@
 ﻿@model IEnumerable<App.Esperanza.Models.Cliente>
 
 @{
-    ViewBag.Title = "Clientes";
+    ViewBag.Title = "Mantenimiento Clientes";
 }
 
 <h2>Bandeja de Clientes</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DNI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RUC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Celular)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaCreacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaModificacion)
-        </th>
-        <th></th>
-    </tr>
+<a href="#" class="btn btn-success"
+   onclick="appEsperanza.getModal('@Url.Action("Create")');"
+   data-toggle="modal" data-target="#modal-container">
+    <span class="fa fa-plus">&nbsp;&nbsp;Crear Cliente</span>
+</a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DNI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RUC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Celular)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaCreacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaModificacion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>
+    </div>
+    <div class="card-body" id="clienteList">
+        @Html.Partial("_List")
+    </div>
+</div>
 
-</table>
+@Modal.GetModal("Mantenimiento de Cliente", "")
+
+
+<!-- Data Table -->
+<link href="~/Content/template/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/Content/template/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Data Table Responsive-->
+<link rel="stylesheet" href="~/Content/template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<script src="~/Content/template/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Content/template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<!-- Data Table Buttons-->
+<link rel="stylesheet" href="~/Content/template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+@*<script src="~/Content/template/plugins/datatables/jquery.dataTables.min.js"></script>*@
+@*<script src="~/Content/template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>*@
+
+<script src="~/Content/template/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+
+<script src="~/Content/template/plugins/jszip/jszip.min.js"></script>
+<script src="~/Content/template/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Content/template/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Content/template/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- Custom scripts de la aplicación-->
+<script src="~/App_JS/appEsperanza.js" type="text/javascript"></script>
+<script src="~/App_JS/cliente.js" type="text/javascript"></script>

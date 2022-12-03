@@ -27,5 +27,27 @@ namespace App.Esperanza.Repositories.Dapper
                                             commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public async Task<IEnumerable<Venta>> ListarPorCliente(int idCliente)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@idCliente", idCliente);
+                return await connection.QueryAsync<Venta>("dbo.UspListarVentasPorCliente", parameters,
+                                            commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public async Task<IEnumerable<Venta>> ListarPorUsuario(int ventaIdAsesor)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@idUsuario", ventaIdAsesor);
+                return await connection.QueryAsync<Venta>("dbo.UspListarVentasPorUsuario", parameters,
+                                            commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }
