@@ -2,6 +2,7 @@
     venta.success = successReload;
     venta.searchByFilter = searchByFilter;
     venta.searchByFilterPend = searchByFilterPend;
+    venta.limpiarFiltros = limpiarFiltros;
 
     /*
     $('#CreationDateVenta').daterangepicker({
@@ -30,8 +31,19 @@
                 timer: 15000 //milisegundos
             })
         }
+        else if (data.includes != null && data.includes("ErrorPage")) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'No se logró completar la acción, vuelva a intentar',
+                showConfirmButton: true,
+                showCloseButton: true,
+                timer: 15000 //milisegundos
+            })
+        }
         else {
             appEsperanza.closeModal(data, option);
+            searchByFilter(); // quitar si falla
         }
     }
     
@@ -94,6 +106,15 @@
             initPaginacion();
         })
 
+    }
+    function limpiarFiltros() {
+        $("#ventaId").val("");
+        $("#ventaIdCliente").val("");
+        $("#ventaIdAsesor").val("");
+
+        $("#ventaPendId").val("");
+        $("#ventaPendIdCliente").val("");
+        $("#ventaPendIdAsesor").val("");
     }
     
     // FFFFFFFFFFFFFFFFFFFF

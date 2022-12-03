@@ -1,12 +1,19 @@
 ﻿@model App.Esperanza.Models.Agencia
 
+<div id="inUse" hidden>
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Atencion!</strong> Esta categoría ya está siendo editada por otro usuario.
+    </div>
+</div>
+
 @using (Ajax.BeginForm("Edit", new { Controller = "Agencia" },
     new AjaxOptions
     {
         HttpMethod = "POST",
         InsertionMode = InsertionMode.Replace,
         UpdateTargetId = "modal-body",
-        OnSuccess = "agencia.success(data, 'edit');"
+        OnSuccess = "agencia.success(data, 'edit');agencia.removeAgenciaId('" + @Model.Id + "');"
     },
     htmlAttributes: new { id = "editForm" }
 ))
@@ -60,9 +67,21 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Actualizar" class="btn btn-primary" />
+            <div id="btn-save" class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Actualizar" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
+<script type="text/javascript">
+    $(function () {
+        $('#inUse').attr('hidden', true); //para ocultar la alerta
+        agencia.addAgenciaId('@Model.Id');
+        agencia.validate('@Model.Id');
+    })
+
+    agencia.closeModal = function () {
+        if (!agencia.recordInUse)
+            agencia.removeAgenciaId('@Model.Id');
+    }
+</script>

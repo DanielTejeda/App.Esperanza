@@ -19,6 +19,7 @@ namespace App.Esperanza.UI.MVC
                 ExpireTimeSpan = TimeSpan.FromMinutes(30)/*,
                 LogoutPath = new PathString("Home/Index"),*/
             });
+            app.MapSignalR();
         }
     }
 }

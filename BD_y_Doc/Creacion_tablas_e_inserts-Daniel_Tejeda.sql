@@ -216,6 +216,9 @@ VALUES(3,'64034348','Julia','Salgado Perez','JSALGADO',PWDENCRYPT(12345678),1,2)
 INSERT INTO [dbo].[Usuario]([Id],[DNI],[Nombres],[Apellidos],[NombreUsuario],[Contraseña],[Estado],[IdRol])
 VALUES(4,'72219681','Juan Carlos','Garagati Rojas','JGARAGATI',PWDENCRYPT(12345678),1,3)
 
+INSERT INTO [dbo].[Usuario]([Id],[DNI],[Nombres],[Apellidos],[NombreUsuario],[Contraseña],[Estado],[IdRol])
+VALUES(5,'12345678','Test_User_1','','USER1',PWDENCRYPT(12345678),1,1)
+
 SET IDENTITY_INSERT [dbo].[Usuario] OFF
 GO
 

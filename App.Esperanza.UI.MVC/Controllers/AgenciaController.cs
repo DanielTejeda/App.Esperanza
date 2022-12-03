@@ -19,6 +19,14 @@ namespace App.Esperanza.UI.MVC.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
+            /*INICIO Signal-R Datos adicionales a usar*/
+            var context = Request.GetOwinContext();
+            var authManager = context.Authentication;
+            var lstClaims = authManager.User.Claims.ToList();
+            ViewBag.userId = lstClaims[3].Value;    //ViewData["userId"] = lstClaims[3].Value;
+            ViewBag.userName = lstClaims[2].Value;  //ViewData["userName"] = lstClaims[2].Value;
+            /*FIN Signal-R Datos adicionales a usar*/
+
             return View(await _unit.Agencias.Listar());
         }
 

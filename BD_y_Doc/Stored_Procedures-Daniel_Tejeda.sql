@@ -47,6 +47,44 @@ BEGIN
 END
 GO
 
+-- ///////////////////////////
+CREATE PROCEDURE [dbo].[UspListarVentasPorCliente]
+	@idCliente int
+AS
+BEGIN
+	IF (@idCliente = 0) BEGIN
+		SELECT *
+		FROM dbo.Venta
+	END
+	ELSE BEGIN
+		SELECT *
+		FROM dbo.Venta
+		WHERE IdCliente = @idCliente
+	END
+	
+END
+GO
+
+CREATE PROCEDURE [dbo].[UspListarVentasPorUsuario]
+	@idUsuario int
+AS
+BEGIN
+	IF (@idUsuario = 0) BEGIN
+		SELECT *
+		FROM dbo.Venta
+	END
+	ELSE BEGIN
+		SELECT *
+		FROM dbo.Venta
+		WHERE IdUsuario = @idUsuario
+	END
+	
+END
+GO
+
+-- ///////////////////////////
+
+
 ---- MANTENIMIENTO DE USUARIOS
 CREATE PROCEDURE [dbo].[uspValidarUsuario]
 	@email varchar(50),
