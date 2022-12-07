@@ -8,7 +8,6 @@ using System.Web.Http;
 
 namespace App.Esperanza.WebApi.Controllers
 {
-    //[Authorize]
     public class BaseController : ApiController
     {
         protected readonly IUnitOfWork _unit;

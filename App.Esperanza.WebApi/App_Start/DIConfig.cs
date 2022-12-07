@@ -8,8 +8,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Configuration;
-using System.Reflection;
-using System.Web.Http.Dependencies;
 
 namespace App.Esperanza.WebApi.App_Start
 {
@@ -24,13 +22,6 @@ namespace App.Esperanza.WebApi.App_Start
                VentasUnitOfWork(ConfigurationManager.ConnectionStrings["VentasConnection"].ToString()));
 
             container.RegisterWebApiControllers(config);
-
-            //Descomentar esta configuracion para usar log4net
-            /*
-            container.RegisterConditional(typeof(ILog),
-                                            c => typeof(Log4NetAdapter<>).MakeGenericType(c.Consumer.ImplementationType),
-                                            Lifestyle.Singleton, c => true);
-            */
 
             container.Verify();
 
